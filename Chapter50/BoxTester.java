@@ -8,6 +8,8 @@ public class BoxTester {
         System.out.println("Area of Box1: " + box1.area(box1.getWidth(), box1.getHeight(), box1.getLength()));
         System.out.println("Volume of Box2: " + box2.volume(box2.getWidth(), box2.getHeight(), box2.getLength()));
 
+        System.out.println(box2.nests(box1));
+
     }
 
 }
