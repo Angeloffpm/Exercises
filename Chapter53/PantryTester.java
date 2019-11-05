@@ -1,13 +1,17 @@
+import java.util.*;
+
 public class PantryTester {
 
-    Static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
         
+        Scanner scan = new Scanner(System.in);
+
         System.out.println("Welcome to Mother Hubbard's Pantry!");
 
         Jam goose = new Jam("Gooseberry", "7/4/86", 12);
         Jam apple = new Jam("Crab Apple", "9/30/99", 8);
         Jam rhub = new Jam("Rhubarb", "10/31/99", 3);
+        Jam uglyJam = new Jam("UglyJam", "2/29/2100", 1000);
 
         Pantry hubbard = new Pantry(goose, apple, rhub);
 
@@ -24,10 +28,20 @@ public class PantryTester {
             selection = scan.nextInt();
 
             System.out.println("Enter amount to spread:");
-            spreadAmount = scan.nextInt;
+            spreadAmount = scan.nextInt();
 
-            hubbard.select(selection);
-            hubbard.spread(spreadAmount);
+            if (hubbard.select(selection)) {
+                hubbard.spread(spreadAmount);
+            } else {
+                System.out.println("Selection not available.");
+            }
+
+            String mixOption;
+            System.out.println("Check to mix fruits? (y or n)");
+            mixOption = scan.nextLine();
+            if (mixOption.equals("y")) {
+                hubbard.mixedFruit();
+            }
 
         }
 

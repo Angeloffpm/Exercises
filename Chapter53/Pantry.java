@@ -68,4 +68,50 @@ public class Pantry {
         selected.spread(oz);
     }
 
+    public void replace(Jam j, int slot) {
+        if (slot == 1) {
+            jar1 = j;
+        } else if (slot == 2 && jar2 != null) {
+            jar2 = j;
+        } else if (slot == 3 && jar3 != null) {
+            jar3 = j;
+        }
+    }
+
+    public void mixedFruit() {
+
+        boolean mix = false;
+        int totalCapacity = 0;
+
+        int j1 = jar1.getCapacity();
+        int j2 = jar2.getCapacity();
+        int j3 = jar3.getCapacity();
+
+        if (jar2 != null && jar3 != null) {
+            if (j1 <= 2 && j2 <= 2 && j3 <= 2) {
+                mix = true;
+                totalCapacity = j1 + j2 + j3;
+            }
+        } else if (jar2 != null) {
+            if (j1 <= 2 && j2 <= 2) {
+                mix = true;
+                totalCapacity = j1 + j2;
+            }
+        } else {
+            if (j1 <= 2) {
+                mix = true;
+                totalCapacity = j1;
+            }
+        }
+
+        if (mix) {
+            this.jar1 = new Jam("Mixed Fruit", jar1.getDate(), totalCapacity);
+            this.jar2 = null;
+            this.jar3 = null;
+        } else {
+            System.out.println("Not all jams are below 2 oz.");
+        }
+
+    }
+
 }

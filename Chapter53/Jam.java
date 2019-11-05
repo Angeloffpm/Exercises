@@ -43,4 +43,14 @@ public class Jam {
 
     }
 
+    // Getters & Setters
+
+    public int getCapacity() {
+        return this.capacity;
+    }
+
+    public String getDate() {
+        return this.date;
+    }
+
 }
