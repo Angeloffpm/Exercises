@@ -15,7 +15,6 @@ class ArrayEquality {
         }
         
         System.out.println("\nMy Equals Says:");
-
         if (myEquals(arrayA, arrayB)) {
             System.out.println("Equal Arrays.");
         } else {
